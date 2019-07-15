@@ -7,11 +7,7 @@
  */
 class AgendamentoController {
   async store({ request, response, params }) {
-    const userData = await request.only([
-      'name',
-      'type',
-      'date'
-    ])
+    const userData = await request.all()
 
     const date_select = await params.date
 
