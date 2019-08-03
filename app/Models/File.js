@@ -4,10 +4,14 @@
 const Model = use('Model')
 
 class File extends Model {
-    /**
-   * Cria um campo virtual(não existe no BD) com o caminho da imagem
-   * Dessa maneira não é necessário montar a url no front, basta retornar o campo virtual
-   */
+  user() {
+    return this.belongsTo('App/Models/User')
+  }
+  
+  /**
+ * Cria um campo virtual(não existe no BD) com o caminho da imagem
+ * Dessa maneira não é necessário montar a url no front, basta retornar o campo virtual
+ */
   static get computed() {
     return ["url"];
   }

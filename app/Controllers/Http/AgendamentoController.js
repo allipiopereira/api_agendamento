@@ -1,6 +1,8 @@
 'use strict'
 
-  const Agendamento = use('App/Models/Agendamento')
+const Agendamento = use('App/Models/Agendamento')
+
+const File = use('App/Models/File')
 
 /**
  * Resourceful controller for interacting with agendamentos
@@ -23,9 +25,16 @@ class AgendamentoController {
 
       agendado.pass = pass
 
+      agendado.save()
+
+      const files = await File.all()
+        //.where('id'. params.id)
+        //.with('user')
+        //.firstOrFail()
+
       return response.json({
         status: 'success',
-        data: agendado
+        data: {agendado, files}
       })
     } catch (error) {
       return response.status(400).json({
@@ -62,7 +71,7 @@ class AgendamentoController {
     }
   }
 
-  /*async destroy({ response, params }) {
+  async destroy({ response, params }) {
     const agendamento = await Agendamento.query()
       .where('id', params.id)
       .firstOrFail()
@@ -71,10 +80,9 @@ class AgendamentoController {
 
     return response.json({
       status: 'success',
-      message: 'Usuário deletado!',
       data: null
     })
-  }*/
+  }
 }
 
 module.exports = AgendamentoController

@@ -8,9 +8,9 @@ class AgendamentoSchema extends Schema {
     this.create('agendamentos', (table) => {
       table.increments()
       table.string('name', 150).notNullable().unique()
-      table.string('cpf', 11).nullable().unique()
+      table.string('cpf', 14).nullable().unique()
       table.integer('pass').notNullable()
-      table.enu('type', ['RG', 'CPF', 'CTPS']).notNullable()
+      table.enu('type', ['RG', 'CPF','DRC', 'ECE', 'EAC', 'ESC', 'FZD']).notNullable()
       table.date('date').notNullable()
       table.timestamps()
     })

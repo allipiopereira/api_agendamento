@@ -43,10 +43,8 @@ class FileController {
     }
   }
 
-  async show({ params, response }){
+  async show({ params }){
     const file = await File.findOrFail(params.id)
-
-    
 
     return Helpers.tmpPath(`uploads/${file.file}`)
   }

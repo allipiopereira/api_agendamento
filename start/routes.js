@@ -4,10 +4,11 @@ const Route = use('Route')
 
 Route.post('agendar/:date', 'AgendamentoController.store')
 
-Route.get('agendados/:date','AgendamentoController.show'
-)
+Route.get('agendados/:date','AgendamentoController.show')
 
-//Route.delete('delete/:id', 'AgendamentoController.destroy')
+Route.delete('delete/:id', 'AgendamentoController.destroy')
+
+//Route.get('dates', 'AgendamentoController.unSelectDates')
 
 Route.post('files', params => 'FileController.store')
 

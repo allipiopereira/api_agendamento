@@ -7,7 +7,7 @@ class AgendamentoSchema extends Schema {
   up () {
     this.table('agendamentos', (table) => {
       // alter table
-      table.string('phone', 11).nullable().unique()
+      table.string('phone', 14).nullable().unique()
     })
   }
 
